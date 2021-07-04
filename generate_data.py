@@ -36,18 +36,18 @@ def generate_events(count_events):
 
 		#the user still hasn't created an account
 		if user_properties['status'] == 'null':
-			functions_of_events.generate_anonymous_user()
+			unique_user_data[user["user_id"]] = functions_of_events.generate_anonymous_user(user)
 
 		#the user didn't have a trial lesson
 		elif user_properties['status'] == 'just registered':
-			functions_of_events.choose_actions_just_registered()
+			unique_user_data[user["user_id"]] = functions_of_events.choose_actions_just_registered(user)
 				
 		#the user had a trial lesson, we are waiting for the user to pay for the lessons
 		elif user_properties['status'] == 'had a trial lesson':
-			functions_of_events.choose_actions_had_trial_lesson()
+			unique_user_data[user["user_id"]] = functions_of_events.choose_actions_had_trial_lesson(user)
 
 		#the user is studying in our school
 		elif user_properties['status'] == 'studying':
-			functions_of_events.choose_actions_studying()
+			unique_user_data[user["user_id"]] = functions_of_events.choose_actions_studying(user)
 		
 	return events
