@@ -343,6 +343,4 @@ def choose_actions_studying():
 		event_choose_new_direction(new_event, events, user)
 
 
-##################### WRITE TO FILE #############################
-write_to_json_file(events, 'events.json')
 
